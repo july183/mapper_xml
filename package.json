@@ -1,0 +1,26 @@
+{
+  "name": "220318_ncs_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "smj.js",
+  "scripts": {
+    "start": "nodemon smj.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/july183/20220318_NCS_TEST.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/july183/20220318_NCS_TEST/issues"
+  },
+  "homepage": "https://github.com/july183/20220318_NCS_TEST#readme",
+  "dependencies": {
+    "concurrently": "^7.0.0",
+    "express": "^4.17.3",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15"
+  }
+}
