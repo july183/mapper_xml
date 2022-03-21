@@ -1,7 +1,8 @@
 module.exports = {
-    host : 'first-datadass.chh4wej74n35.ap-northeast-2.rds.amazonaws.com',
+    connectionLimit : 66,
+    host : 'myreactdb-1.chh4wej74n35.ap-northeast-2.rds.amazonaws.com',
     user : 'admin',
-    password : 'ricky136',
+    password : 'Bang0820!',
     port : '3306',
-    database : 'react_suppose'
+    database : 'potopolio'
 }

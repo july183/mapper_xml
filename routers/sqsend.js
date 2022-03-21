@@ -1,23 +1,30 @@
 var express = require('express')
 var mysql = require('mysql')
 var dbconfig = require('../db/config.js')
-const connection = mysql.createConnection(dbconfig);
+
+var pool = mysql.createPool(dbconfig);
 var router = express.Router();
 
-router.get('/',(req, res) => {
-    res.send('/sqsend');
-})
-router.get('/getsend',(req, res) => {
-    res.send({'url':'/sqsend/getsend'});
-})
+router.use(express.urlencoded({extended : true}))
 
-router.get('/awssql', (req, res) => {
-    connection.query('SELECT * FROM react_suppose', 
-      (error, rows) => {
-        if (error) throw error;
-        console.log('해당스키마안의 테이블내용: ', rows);
-        res.send(rows);
-      });
+router.get('/', (req, res,next) => {
+  var botable = req.query.botable
+  // ~~~~?botable=qna
+  pool.getConnection(function(err,connection){
+    if(botable == 'qna'){//여기서 보테이블은 qna이다
+      connection.query(
+        'SELECT * FROM potopolio.'+botable,
+        (error, result) => {
+          if (error) throw error;
+          res.send(result);
+        })
+      connection.release();  
+    }else{
+      var accident = require('../routers/postsend')
+      router.use('/', accident )
+      next('route')
+    }
+  })
 })
 
 module.exports = router;
