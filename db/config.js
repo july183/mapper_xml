@@ -4,5 +4,5 @@ module.exports = {
     user : 'admin',
     password : 'Bang0820!',
     port : '3306',
-    database : 'potopolio'
+    database : 'introduce'
 }

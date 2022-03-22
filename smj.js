@@ -1,5 +1,4 @@
-var express = require('express')
-var app = express();
+var app = require('express')();
 var sqsend = require('./routers/sqsend')
 
 app.get('/',(req,res) => {
