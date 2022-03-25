@@ -6,7 +6,7 @@ const Interview = (props) => {
     const [typeData,insertDB] = useState(0);   
    
     const interviewDataSetting = async () => {                      
-                             await axios.get(`/prointerview?botable=${props.botable}`)
+                             await axios.get(`/prointerview?type=${props.botable}`)
                                         .then(
                                             (result) => {  //test형 array
                                                 try{  
